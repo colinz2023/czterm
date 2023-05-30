@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+this_path=$(dirname $(readlink -e "$0"))
+local_path=$(readlink -f "${this_path}/../local/")
+
+
+if [[ -d ${local_path} ]]; then
+    if [[ -d  "${local_path}/bin" ]]; then
+        export PATH="${local_path}/bin":${PATH}
+    fi
+
+    if [[ -d "${local_path}/git" ]]; then
+        export PATH="${local_path}/git/bin":${PATH}
+    fi
+fi
+
+
+git $@
