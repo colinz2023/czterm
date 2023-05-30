@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+function apt_install() {
+    apt-get update
+    apt-get install build-essential tar curl zip unzip
+}
+
+function yum_install() {
+    yum install centos-release-scl
+    yum install devtoolset-7
+    scl enable devtoolset-7 bash
+}
+
+if [[ $(which apt) ]]; then
+    apt_install
+fi
+
+
