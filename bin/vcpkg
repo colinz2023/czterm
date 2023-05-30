@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+this_path=$(dirname $(readlink -e "$0"))
+local_path=$(readlink -f "${this_path}/../.local/")
+
